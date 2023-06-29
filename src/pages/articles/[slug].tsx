@@ -19,8 +19,8 @@ export default function Post() {
   const [content, setContent] = useState('')
   const [textInput, setTextInput] = useState('');
   const [voiceList, setVoiceList] = useState<any>([]);
-  const [voiceOptions, setVoiceOptions] = useState([]);
-  const [voice, setVoice] = useState('Alex');
+  const [voiceOptions, setVoiceOptions] = useState<[{ name: string, label: string }]>([{name: 'Alex', label: 'Alex - en-US'}]);
+  const [voice, setVoice] = useState('Microsoft David - English (United States)');
   const [pitch, setPitch] = useState<number>(1);
   const [rate, setRate] = useState<number>(1);
 
@@ -55,10 +55,10 @@ export default function Post() {
   const handleChange = (value: string) => {
     console.log(`selected ${value}`);
   };
-  const handleSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    console.log('handleSubmit', textInput);
-    textInput.length && sayInput(textInput, voice, pitch, rate);
+  const handleSubmit = (e: any) => {
+    // e.preventDefault();
+    console.log('handleSubmit', e);
+    textInput.length && sayInput(textInput, e.voice, e.pitch, e.rate);
   };
 
   useEffect(() => {
@@ -113,7 +113,7 @@ export default function Post() {
     <div className="p-4">
       <button className='mt-4 bg-blue-600 text-white py-1 px-4 rounded-md' onClick={handleBack}>返回</button>
       {/* <button className='mt-4 bg-blue-600 text-white py-1 px-4 rounded-md' onClick={handleSubmit}>开始播放</button> */}
-      <Controls voice={{voice}}/>
+      <Controls voice={voice} voiceOptions={voiceOptions} onSubmit={handleSubmit}/>
       {/* <div className="flex justify-between items-center pb-4">
         <h2 className="text-xl font-bold">
           {post.title}
