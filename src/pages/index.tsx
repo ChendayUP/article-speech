@@ -5,24 +5,42 @@ import { api } from "~/utils/api";
 // import { getAllPosts } from '../../lib/api'
 import Post from '../interfaces/post'
 import { populateVoiceList, sayInput } from '../utils/speech';
+import React, { useState, useEffect } from 'react';
 type Props = {
   allPosts: Post[]
 }
 
 const Home: NextPage = () => {
+  const [voiceList, setVoiceList] = useState<any>([]);
+
   // const hello = api.example.hello.useQuery({ text: "from tRPC" });
   // const articleList = [
   //   { title: '文章1', content: '文章1内容', path: '/article/1' },
   //   { title: '文章1', content: '文章1内容', path: '/article/1' },
   //   { title: '文章1', content: '文章1内容', path: '/article/1' },
   // ]
-  const ctx = api.useContext();
+  // const ctx = api.useContext();
 
   const articleList = api.articles.getAllPosts.useQuery();
   const list = articleList.data || []
   console.log('articleList', list)
-  const data = populateVoiceList();
-  console.log('populateVoiceList', data);
+
+  useEffect(() => {
+    const fetchVoices = () => {
+      // try {
+      // window.speechSynthesis.onvoiceschanged = () => {
+      const data = populateVoiceList();
+      console.log('populateVoiceList', data);
+      setVoiceList(data);
+      //   };
+      // } catch (err) {
+      //   console.log(err);
+      // }
+    };
+    fetchVoices();
+    // const data = populateVoiceList();
+    //       console.log('populateVoiceList', data);
+  }, []);
   return (
     <>
       <Head>
@@ -49,20 +67,18 @@ const Home: NextPage = () => {
             </Link>
           )
         })}
-        {
-          data.map((item: any, index: any) => {
-            return (
-              <>
-                <div className="flex flex-row justify-items-start items-center">
-                  <span>{item.name}</span>
-                  <span>{item.lang}</span>
-                  <span>{item.voiceURI}</span>
-                </div>
-                
-              </>
-            )
-          })
-        }
+        <Link
+          as={`/voiceList`}
+          href="/voiceList"
+          className="">
+          <div className="border rounded-md border-slate-300 shadow-md m-4 pl-4 pr-4 pb-4">
+            <div className="flex justify-between items-center pb-4">
+              <h2 className="text-xl font-bold">
+                语音列表
+              </h2>
+            </div>
+          </div>
+        </Link>
       </main>
     </>
   );
