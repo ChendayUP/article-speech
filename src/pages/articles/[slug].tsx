@@ -89,7 +89,7 @@ export default function Post() {
           { value: name, label: `${name} - ${lang}` }
         ))
       ) : (
-        { value: `Alex`, label: `Alex - en-US` }
+        [{ value: `Alex`, label: `Alex - en-US` }]
       )
     );
   }, [voiceList]);
