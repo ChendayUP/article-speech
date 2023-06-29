@@ -34,7 +34,7 @@ const VoiceList = () => {
       <main className=''>
       <button className='mt-4 bg-blue-600 text-white py-1 px-4 rounded-md' onClick={()=> {router.back()}}>返回</button>
         {
-          voiceList.lengh > 0 ?
+          voiceList.length > 0 ?
           voiceList.map((item: any, index: any) => {
             return (
               <>
