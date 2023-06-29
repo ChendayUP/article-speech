@@ -4,7 +4,7 @@ import Link from "next/link";
 import { api } from "~/utils/api";
 // import { getAllPosts } from '../../lib/api'
 import Post from '../interfaces/post'
-
+import { populateVoiceList, sayInput } from '../utils/speech';
 type Props = {
   allPosts: Post[]
 }
@@ -21,7 +21,8 @@ const Home: NextPage = () => {
   const articleList = api.articles.getAllPosts.useQuery();
   const list = articleList.data || []
   console.log('articleList', list)
-
+  const data = populateVoiceList();
+  console.log('populateVoiceList', data);
   return (
     <>
       <Head>
@@ -32,10 +33,10 @@ const Home: NextPage = () => {
       <main className=''>
         {list.map((item, index) => {
           return (
-            <Link key={index} 
-            as={`/articles/${item.slug}`}
-            href="/articles/[slug]"
-            className="">
+            <Link key={index}
+              as={`/articles/${item.slug}`}
+              href="/articles/[slug]"
+              className="">
               <div className="border rounded-md border-slate-300 shadow-md m-4 pl-4 pr-4 pb-4">
                 <div className="flex justify-between items-center pb-4">
                   <h2 className="text-xl font-bold">
@@ -48,6 +49,20 @@ const Home: NextPage = () => {
             </Link>
           )
         })}
+        {
+          data.map((item: any, index: any) => {
+            return (
+              <>
+                <div className="flex flex-row justify-items-start items-center">
+                  <span>{item.name}</span>
+                  <span>{item.lang}</span>
+                  <span>{item.voiceURI}</span>
+                </div>
+                
+              </>
+            )
+          })
+        }
       </main>
     </>
   );
