@@ -4,7 +4,7 @@ import { Button, Checkbox, Form, Input, Row, Col, Select } from 'antd';
 
 interface controlProps {
   voice: string;
-  voiceOptions: [{ name: string, label: string }];
+  voiceOptions: [{ value: string, label: string }];
   onSubmit: (values: any) => void;
 }
 

@@ -19,7 +19,7 @@ export default function Post() {
   const [content, setContent] = useState('')
   const [textInput, setTextInput] = useState('');
   const [voiceList, setVoiceList] = useState<any>([]);
-  const [voiceOptions, setVoiceOptions] = useState<[{ name: string, label: string }]>([{name: 'Alex', label: 'Alex - en-US'}]);
+  const [voiceOptions, setVoiceOptions] = useState<[{ value: string, label: string }]>([{value: 'Microsoft David - English (United States)', label: 'Microsoft David - English (United States) - en-US'}]);
   const [voice, setVoice] = useState('Microsoft David - English (United States)');
   const [pitch, setPitch] = useState<number>(1);
   const [rate, setRate] = useState<number>(1);
@@ -89,7 +89,7 @@ export default function Post() {
           { value: name, label: `${name} - ${lang}` }
         ))
       ) : (
-        [{ value: `Alex`, label: `Alex - en-US` }]
+        [{value: 'Microsoft David - English (United States)', label: 'Microsoft David - English (United States) - en-US'}]
       )
     );
   }, [voiceList]);
