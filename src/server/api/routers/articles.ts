@@ -16,6 +16,9 @@ export function getPostSlugs() {
 }
 
 export function getPostBySlug(slug: string) {
+  if (!slug) {
+    return {}
+  }
   const realSlug = slug.replace(/\.md$/, '')
   const fullPath = join(postsDirectory, `${realSlug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
@@ -65,4 +68,9 @@ export const articlesRouter = createTRPCRouter({
     .query(async () => {
       return getAllPosts()
     }),
+    getPostBySlug: publicProcedure
+    .input(z.object({slug: z.string()}))
+    .query(async ({ctx, input}) => {
+      return getPostBySlug(input.slug)
+    })
 });

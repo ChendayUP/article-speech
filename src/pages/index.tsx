@@ -35,8 +35,8 @@ const Home: NextPage = () => {
             <Link key={index} 
             as={`/articles/${item.slug}`}
             href="/articles/[slug]"
-            className="hover:underline">
-              <div className="border rounded-md border-slate-300 shadow-md m-4 p-4">
+            className="">
+              <div className="border rounded-md border-slate-300 shadow-md m-4 pl-4 pr-4 pb-4">
                 <div className="flex justify-between items-center pb-4">
                   <h2 className="text-xl font-bold">
                     {item.title}
