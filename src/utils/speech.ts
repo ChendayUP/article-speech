@@ -10,6 +10,7 @@ export const populateVoiceList = () => {
     return voices.sort((a: any, b: any) => a.name.localeCompare(b.name));
   } catch (err) {
     console.log(err);
+    alert('Error: ' + err)
   }
 };
 
