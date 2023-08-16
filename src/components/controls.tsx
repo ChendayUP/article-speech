@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Checkbox, Form, Input, Row, Col, Select } from 'antd';
+import { effect } from 'zod';
 
 
 interface controlProps {
@@ -22,6 +23,13 @@ const Controls: React.FC<controlProps> = ({ voice, voiceOptions, onSubmit}) => {
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
   };
+
+  // 关闭时停止播放
+  useEffect(() => {
+    return () => {
+      window.speechSynthesis.cancel();
+    }
+  }, [])
 
   return (
     <Form

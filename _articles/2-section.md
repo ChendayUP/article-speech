@@ -9,28 +9,41 @@ author: You
 # 1. What are the different data types present in javascript?
 
 To know the type of a JavaScript variable, we can use the typeof operator.
+
 1. Primitive types
+
 String - It represents a series of characters and is written with quotes. A string can be
 represented using a single or a double quote.
+
 Number - It represents a number and can be written with or without decimals.
+
 BigInt - This data type is used to store numbers which are above the limitation
 of the Number data type. It can store large integers and is represented by adding
 “n” to an integer literal.
+
 Boolean - It represents a logical entity and can have only two values : true or
 false. Booleans are generally used for conditional testing.
+
 Undefined - When a variable is declared but not assigned, it has the value of
 undefined and it’s type is also undefined.
+
 Null - It represents a non-existent or a invalid value
+
 Symbol - It is a new data type introduced in the ES6 version of javascript. It is
-used to store an anonymous and unique value
-typeof of primitive types
+used to store an anonymous and unique value typeof of primitive types
+
 2. Non-primitive types
+
 Primitive data types can store only a single value. To store multiple and complex
 values, non-primitive data types are used.
+
 Object - Used to store collection of data
+
 Note- It is important to remember that any data type that is not a primitive
 data type, is of Object type in javascript.
+
 # 2. Explain Hoisting in javascript.
+
 Hoisting is the default behaviour of javascript where all the variable and function
 declarations are moved on top.
 This means that irrespective of where the variables and functions are declared, they
