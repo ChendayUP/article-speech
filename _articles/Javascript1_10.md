@@ -1,5 +1,5 @@
 ---
-title: JavaScript Interview Questions
+title: JavaScript Interview Questions 1 - 10
 date: 2023/8/14
 description: JavaScript Interview Questions Learning.
 tag: JavaScript Interview Questions
