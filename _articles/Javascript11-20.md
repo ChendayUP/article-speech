@@ -98,7 +98,7 @@ If the variable is not found in the global space as well, a reference error is t
 Closures are an ability of a function to remember the variables and functions that are
 declared in its outer scope.
 
-This ability of a function to store a variable for further reference even aȅ er it is
+This ability of a function to store a variable for further reference even after it is
 executed is called Closure.
 
 
