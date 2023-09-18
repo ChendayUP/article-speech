@@ -1,5 +1,5 @@
 ---
-title: template
+title: JavaScript Interview Questions 31 - 40
 date: 2023/1/1
 description: JavaScript Interview Questions Learning.
 tag: JavaScript Interview Questions
