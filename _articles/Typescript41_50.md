@@ -61,5 +61,7 @@ You can always call a value of the Function type, and it returns a value of ‘a
 # 30. List some of the utility types provided by TypeScript and explain their usage.
 TypeScript provides various utility types that make common type transformations easy. These utility types are available globally. Here are some of the essential utility types included in TypeScript.
 
+# 31
+
 
 
